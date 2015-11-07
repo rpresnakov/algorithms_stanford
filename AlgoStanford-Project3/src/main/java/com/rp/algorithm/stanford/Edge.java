@@ -32,4 +32,23 @@ public class Edge {
     public String toString() {
         return v1.toString() + "-" + v2.toString();
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Edge edge = (Edge) o;
+
+        if (!v1.equals(edge.v1)) return false;
+        return v2.equals(edge.v2);
+
+    }
+
+    @Override
+    public int hashCode() {
+        int result = v1.getId();
+        result = 31 * result + v2.getId();
+        return result;
+    }
 }

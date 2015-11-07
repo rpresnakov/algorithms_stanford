@@ -38,4 +38,21 @@ public class Vertex {
     public String toString() {
         return Integer.toString(id);
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Vertex vertex = (Vertex) o;
+
+        return (id == vertex.id);
+    }
+
+    @Override
+    public int hashCode() {
+        int result = id;
+        return result;
+    }
+
 }
