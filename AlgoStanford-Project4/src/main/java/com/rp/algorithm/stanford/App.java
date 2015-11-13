@@ -53,17 +53,15 @@ public class App
     private int N;
     private int t = 0;
     private boolean[] marked;
+
     private Vertex[] ratedV;
     private Vertex[] vertices;
-
-    private int[] maxResults;
 
     public App(Vertex[] vertices, int N) {
         this.N = N;
         this.vertices = vertices;
         this.ratedV = new Vertex[N + 1];
         marked = new boolean[N + 1];
-        maxResults = new int[5];
     }
 
     public int DFS1(Vertex[] vertices, int i, boolean useReverse) {
@@ -76,7 +74,7 @@ public class App
         for (Vertex arc : arcs) {
             int goToIndex = useReverse ? arc.getId() : arc.getRank();
             if (!marked[goToIndex]) {
-                num = DFS1(vertices, goToIndex, useReverse);
+                num += DFS1(vertices, goToIndex, useReverse);
             }
         }
 
